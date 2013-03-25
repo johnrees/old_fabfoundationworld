@@ -2,17 +2,14 @@
 // @import "bourbon";
 // @import "leaflet";
 body,html { height: 100%; }
+body {
+  padding-top: 45px;
+}
 #map { height: 100%; position: relative; top: 0; }
-nav {
-
-
-}
 .top-bar {
+  position: absolute;
+  top: 0;
   z-index: 99999 !important;
-  position: fixed !important;
-}
-.leaflet-top {
-  top: 50px !important;
 }
 #filter {
   width: 80%;
