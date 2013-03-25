@@ -17,7 +17,7 @@ class LabsController < ApplicationController
   def new
     @lab = Lab.new
     @lab.build_address
-    # @lab.contacts.build
+    @lab.contacts.build
     # @lab.websites.build
   end
 

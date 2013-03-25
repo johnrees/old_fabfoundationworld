@@ -5,42 +5,61 @@
 
   %fieldset
     %legend Fab Lab Details
-    = f.input :name, label: 'Fab Lab Name'
-    = f.input :kind, collection: Lab::KINDS, as: :radio
+    .row
+      .large-10.columns
+        = f.input :name, label: 'Fab Lab Name'
+      .large-2.columns
+        = f.input :kind, collection: Lab::KINDS#, as: :radio
 
   %fieldset
     %legend Address
     = f.fields_for :address do |a|
       = text_field_tag :address_search
-      #map_canvas
+
       .details
-        = a.input :building, { input_html: { data: { geo: 'formatted_address' }}}
-        = a.input :street, { input_html: { data: { geo: 'street_address' }}}
-        = a.input :city, { input_html: { data: { geo: 'locality' }}}
-        = a.input :zip, { input_html: { data: { geo: 'postal_code' }}}
-        = a.input :country, { input_html: { data: { geo: 'country_short' }}}
-        = a.input :latitude, { input_html: { data: { geo: 'lat' }}}
-        = a.input :longitude, { input_html: { data: { geo: 'lng' }}}
+        .row
+          .large-8.columns
+            #map_canvas
+          .large-4.columns
+            = a.input :formatted, label: "Formatted Address", input_html: { rows: 6, data: { geo: 'formatted_address' }}, as: :text
+          .large-4.columns
+            = a.input :country, { input_html: { data: { geo: 'country_short' }}}
+          .large-4.columns
+            = a.input :latitude, { input_html: { data: { geo: 'lat' }}, disabled: true}
+          .large-4.columns
+            = a.input :longitude, { input_html: { data: { geo: 'lng' }}, disabled: true}
 
   %fieldset
     %legend Contacts
     = f.fields_for :contacts do |c|
       %fieldset
-        = c.input :name
-        = c.input :role
-        = c.input :email
-        = c.input :phone
-        = c.input :fax
-        = c.link_to_remove "Remove this contact"
+        .row
+          .large-6.columns
+            = c.input :name
+          .large-6.columns
+            = c.input :role, label: 'Role/Job-Title'
+        .row
+          .large-12.columns
+            = c.input :email
+          .large-12.columns
+            = c.input :phone
+          .large-9.columns
+            = c.input :fax
+          .large-3.columns
+            = c.link_to_remove "Remove this contact", class: 'button alert small'
     = f.link_to_add "Add a contact", :contacts, class: 'button tiny secondary'
 
   %fieldset
     %legend Websites
     = f.fields_for :websites do |w|
       %fieldset
-        = w.input :name
-        = w.input :url
-        = w.link_to_remove "Remove this website"
+        .row
+          .large-4.columns
+            = w.input :name
+          .large-5.columns
+            = w.input :url, placeholder: 'http://'
+          .large-3.columns
+            = w.link_to_remove "Remove this website", class: 'button alert small'
     = f.link_to_add "Add a website", :websites, class: 'button tiny secondary'
 
   %fieldset

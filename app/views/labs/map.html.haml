@@ -34,15 +34,14 @@
 
 %script{id: 'popup-template', type: 'text/x-handlebars-template'}
   :plain
-    <h2>{{name}}</h2>
-    <!--<a href="/labs/{{_id}}/edit" class="button small secondary">Edit Lab</a>-->
+    <h2><a href="/labs/{{_id}}/edit">{{name}}</a></h2>
+    {{address.formatted}}
 
     {{#if hours}}
     <hr/>
     <h5>Opening Hours</h5>
     {{hours}}
     {{/if}}
-
 
     {{#if contacts}}
     <hr/>

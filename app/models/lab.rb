@@ -15,7 +15,6 @@ class Lab
   accepts_nested_attributes_for :contacts, :websites, :address,
     allow_destroy: true
 
-
   field :hours
   field :collaborators
   field :comments
@@ -33,10 +32,10 @@ class Address
   include Mongoid::Document
   embedded_in :labs
   field :formatted
-  field :building
-  field :street
-  field :city
-  field :zip
+  # field :building
+  # field :street
+  # field :city
+  # field :zip
   field :country
   field :latitude
   field :longitude

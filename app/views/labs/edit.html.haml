@@ -1,4 +1,6 @@
 .row
   .large-12
-    %h1= "Edit #{@lab}"
+    %h1
+      = link_to "Labs", labs_path
+      = "/ Edit #{@lab}"
     = render "form"
