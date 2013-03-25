@@ -34,22 +34,32 @@
 
 %script{id: 'popup-template', type: 'text/x-handlebars-template'}
   :plain
-    <h1>{{name}}</h1>
-    <a href="/labs/{{_id}}/edit" class="button small secondary">Edit Lab</a>
+    <h2>{{name}}</h2>
+    <!--<a href="/labs/{{_id}}/edit" class="button small secondary">Edit Lab</a>-->
+
+    {{#if hours}}
+    <hr/>
+    <h5>Opening Hours</h5>
+    {{hours}}
+    {{/if}}
+
 
     {{#if contacts}}
+    <hr/>
     <h4>Contacts</h4>
     <ul>
     {{#each contacts}}
       <li>
-        {{name}} {{#if role}}({{role}}){{/if}} - <a href="mailto:{{email}}">{{email}}</a>
-        {{phone}}
+        <span class="line">{{name}} {{#if role}}({{role}}){{/if}}</span>
+        <span class="email"><a href="mailto:{{email}}">{{email}}</a></span>
+        <span class="phone">{{phone}}</span>
       </li>
     {{/each}}
     </ul>
     {{/if}}
 
     {{#if websites}}
+    <hr/>
     <h4>Websites</h4>
     <ul>
     {{#each websites}}
