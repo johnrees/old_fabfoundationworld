@@ -42,7 +42,7 @@ filter = ->
     if window.searchTerm is ""
       enable(lab.marker)
     else
-      for word in ["name", "location", "email"]
+      for word in ["name"]
         if lab[word].match(new RegExp(window.searchTerm, "i"))
           enable(lab.marker)
           break
@@ -95,7 +95,7 @@ jQuery ->
     window.kind = (if li.attr('id') is 'allkinds' then null else li.data('kind'))
     filter()
 
-  $('input').keyup ->
+  $('#search_filter').keyup ->
     window.searchTerm = $(this).val()
     filter()
 

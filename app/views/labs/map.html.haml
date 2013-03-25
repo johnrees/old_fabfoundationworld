@@ -13,7 +13,7 @@
       %li.has-form
         %form
           .row.collapse
-            %input{type: "text", placeholder: "Search..."}/
+            %input{type: "text", placeholder: "Search...", id: 'search_filter'}/
       %li.divider
       %li.has-dropdown
         = link_to "All Fab Labs", "#", id: 'current_kind'
@@ -35,13 +35,15 @@
 %script{id: 'popup-template', type: 'text/x-handlebars-template'}
   :plain
     <h1>{{name}}</h1>
+    <a href="/labs/{{_id}}/edit" class="button">Edit Lab</a>
     <ul>
+    <h4>Contacts</h4>
     {{#each contacts}}
       <li>
-        <h3>{{name}}</h3>
-        <a href="mailto:{{email}}">{{email}}</a>
+        {{name}} - <a href="mailto:{{email}}">{{email}}</a>
         {{phone}}
       </li>
     {{/each}}
     </li>
+    </ul>
     {{comments}}
