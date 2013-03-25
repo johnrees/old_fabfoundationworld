@@ -3,7 +3,7 @@ class LabsController < ApplicationController
     @labs = Lab.all
     respond_to do |format|
       format.html
-      format.json { render text: @labs.to_json }
+      format.json { render json: @labs.to_json }
     end
   end
 
