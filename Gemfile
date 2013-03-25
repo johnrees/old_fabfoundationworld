@@ -7,6 +7,7 @@ gem "carmen"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'haml-rails'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Gems used only for assets and not required
 # in production environments by default.
