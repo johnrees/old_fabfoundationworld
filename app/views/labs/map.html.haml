@@ -28,22 +28,36 @@
     %ul.right
       %li.divider
       %li.has-form
-        = link_to "Add a Lab", new_lab_path, class: 'button'
+        = link_to "Add a Lab", new_lab_path, class: 'button radius'
 
 #map
 
 %script{id: 'popup-template', type: 'text/x-handlebars-template'}
   :plain
     <h1>{{name}}</h1>
-    <a href="/labs/{{_id}}/edit" class="button">Edit Lab</a>
-    <ul>
+    <a href="/labs/{{_id}}/edit" class="button small secondary">Edit Lab</a>
+
+    {{#if contacts}}
     <h4>Contacts</h4>
+    <ul>
     {{#each contacts}}
       <li>
-        {{name}} - <a href="mailto:{{email}}">{{email}}</a>
+        {{name}} {{#if role}}({{role}}){{/if}} - <a href="mailto:{{email}}">{{email}}</a>
         {{phone}}
       </li>
     {{/each}}
-    </li>
     </ul>
+    {{/if}}
+
+    {{#if websites}}
+    <h4>Websites</h4>
+    <ul>
+    {{#each websites}}
+      <li>
+        <a href="{{url}}">{{url}}</a>
+      </li>
+    {{/each}}
+    </ul>
+    {{/if}}
+
     {{comments}}
