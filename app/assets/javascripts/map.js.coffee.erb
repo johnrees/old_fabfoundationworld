@@ -63,7 +63,7 @@ jQuery ->
     for lab in labs
       lab.marker = L.marker([lab.address.latitude, lab.address.longitude], {
         icon: L.icon
-          iconUrl: window.image_path("fab_lab-icon.png")
+          iconUrl: window.image_path("#{lab.kind}-icon.png")
           iconSize:     [35, 35]
           iconAnchor:   [17, 33]
           popupAnchor:  [0, -20]

@@ -12,7 +12,9 @@ class Lab
   embeds_many :contacts
   embeds_many :websites
 
-  accepts_nested_attributes_for :contacts, :websites, :address
+  accepts_nested_attributes_for :contacts, :websites, :address,
+    allow_destroy: true
+
 
   field :hours
   field :collaborators

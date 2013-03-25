@@ -39,4 +39,10 @@ class LabsController < ApplicationController
     end
   end
 
+  def destroy
+    @lab = Lab.find(params[:id])
+    @lab.delete
+    redirect_to root_path, notice: "Lab deleted"
+  end
+
 end
