@@ -1,52 +1,47 @@
 %nav.top-bar.fixed
+
   %ul.title-area
-    / Title Area
     %li.name
-      %h1
-        %a{:href => "#"} Fab Lab World
-    / Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+      %h1= link_to "Fab Lab Map", root_path
     %li.toggle-topbar.menu-icon
       %a{:href => "#"}
-        %span Menu
+        %span
+
   %section.top-bar-section
-    / Left Nav Section
     %ul.left
-      %li.divider
-      %li.has-dropdown
-        %a{:href => "#"} All Fab Labs
-        %ul.dropdown
-          %li.active
-            %a{:href => "#"} All Fab Labs
-          %li.divider
-          %li
-            %a{:href => "#"} Fab Labs
-          %li
-            %a{:href => "#"} Mini Fab Labs
-          %li
-            %a{:href => "#"} Planned Fab Labs
       %li.divider
       %li.has-form
         %form
           .row.collapse
             %input{type: "text", placeholder: "Search..."}/
-            / .small-4.columns
-            /   %a.button{:href => "#"} Search
-    / Right Nav Section
+      %li.divider
+      %li.has-dropdown
+        = link_to "All Fab Labs", "#", id: 'current_kind'
+        %ul.dropdown
+          %li#allkinds.kind{data: {kind: 'fablab mini planned'}}= link_to "All Fab Labs", "#"
+          %li.divider
+
+          %li.kind{data: {kind: 'fab_lab'}}= link_to "Fab Labs", "#"
+          %li.kind{data: {kind: 'mini'}}= link_to "Mini Fab Labs", "#"
+          %li.kind{data: {kind: 'planned'}}= link_to "Planned Labs", "#"
+      %li.divider
     %ul.right
       %li.divider
       %li.has-form
         = link_to "Add a Lab", new_lab_path, class: 'button'
 
-/ #filter
-/   #search
-/     .box
-/       %input{type: 'search', placeholder: "Search..."}
-/   #buttons
-/     %ul
-/       %li#alltypes.type{data: {type: 'fablab mini planned'}} All Labs
-/       %li.type{data: {type: 'fablab'}} Fab Labs
-/       %li.type{data: {type: 'mini'}} Mini Fab Labs
-/       %li.type{data: {type: 'planned'}} Planned Labs
-
-/   = link_to "Add Lab", new_lab_path, class: 'button'
 #map
+
+%script{id: 'popup-template', type: 'text/x-handlebars-template'}
+  :plain
+    <h1>{{name}}</h1>
+    <ul>
+    {{#each contacts}}
+      <li>
+        <h3>{{name}}</h3>
+        <a href="mailto:{{email}}">{{email}}</a>
+        {{phone}}
+      </li>
+    {{/each}}
+    </li>
+    {{comments}}

@@ -6,7 +6,7 @@
   %fieldset
     %legend Fab Lab Details
     = f.input :name, label: 'Fab Lab Name'
-    = f.input :kind, collection: Lab::KINDS
+    = f.input :kind, collection: Lab::KINDS, as: :radio
 
   %fieldset
     %legend Address

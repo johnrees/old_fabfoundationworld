@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require jquery.geocomplete
 //= require leaflet
-//= require foundation
+//= require handlebars
 //= require jquery_nested_form
 //= require_tree .
 
