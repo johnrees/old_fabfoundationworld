@@ -15,6 +15,7 @@
 //= require foundation
 //= require jquery.geocomplete
 //= require leaflet
+//= require leaflet.markercluster-src
 //= require handlebars
 //= require jquery_nested_form
 //= require_tree .

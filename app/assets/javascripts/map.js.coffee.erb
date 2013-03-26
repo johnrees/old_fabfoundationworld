@@ -10,6 +10,7 @@ window.image_path = (name) ->
 
 window.searchTerm = ""
 window.kind = null
+window.markers = new L.MarkerClusterGroup()
 
 center = (position) ->
   latitude = position.coords.latitude
@@ -18,7 +19,7 @@ center = (position) ->
 
 show_map = ->
   window.map.setView([41,2], 2)
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  L.tileLayer('http://{s}.tile.cloudmade.com/384aceabcd0942189d0e93cf0e98cd31/90734/256/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map)
 
@@ -30,10 +31,12 @@ row = (key, value) ->
   "<tr><th>#{key}</th><td>#{value}<td></tr>"
 
 enable = (marker) ->
-  marker.bindPopup(marker.desc).setOpacity(1)
+  window.markers.addLayer(marker)
+  # marker.bindPopup(marker.desc).setOpacity(1)
 
 disable = (marker) ->
-  marker.closePopup().unbindPopup().setOpacity(0)
+  window.markers.removeLayer(marker)
+  # marker.closePopup().unbindPopup().setOpacity(0)
 
 filter = ->
   for lab in window.labs
@@ -68,7 +71,8 @@ jQuery ->
             iconSize:     [35, 35]
             iconAnchor:   [17, 33]
             popupAnchor:  [0, -20]
-        }).addTo(map)
+        })#.addTo(map)
+        window.markers.addLayer(lab.marker)
 
         source = $("#popup-template").html()
         template = Handlebars.compile(source)
@@ -83,6 +87,7 @@ jQuery ->
         lab.marker.bindPopup(lab.marker.desc)
 
         window.labs.push(lab)
+    map.addLayer(markers)
 
   $('#current_kind').click (e) ->
     e.preventDefault()
