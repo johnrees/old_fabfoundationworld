@@ -19,7 +19,7 @@ center = (position) ->
   window.map.setView([latitude, longitude], 7)
 
 show_map = ->
-  window.map.setView([41,2], 2)
+  window.map.setView([41,2], 2).setMaxBounds(window.map.getBounds());
   L.tileLayer('http://{s}.tile.cloudmade.com/384aceabcd0942189d0e93cf0e98cd31/90734/256/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map)
@@ -57,7 +57,7 @@ filter = ->
 
 jQuery ->
   window.map = L.map 'map', {
-    minZoom: 2
+    minZoom: 1
     maxZoom: 13
   }
   window.labs = []
