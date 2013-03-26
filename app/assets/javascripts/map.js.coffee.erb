@@ -61,27 +61,28 @@ jQuery ->
 
   $.get "/labs.json", (labs) ->
     for lab in labs
-      lab.marker = L.marker([lab.address.latitude, lab.address.longitude], {
-        icon: L.icon
-          iconUrl: window.image_path("#{lab.kind}-icon.png")
-          iconSize:     [35, 35]
-          iconAnchor:   [17, 33]
-          popupAnchor:  [0, -20]
-      }).addTo(map)
+      if lab.address.latitude
+        lab.marker = L.marker([lab.address.latitude, lab.address.longitude], {
+          icon: L.icon
+            iconUrl: window.image_path("#{lab.kind}-icon.png")
+            iconSize:     [35, 35]
+            iconAnchor:   [17, 33]
+            popupAnchor:  [0, -20]
+        }).addTo(map)
 
-      source = $("#popup-template").html()
-      template = Handlebars.compile(source)
-      lab.marker.desc = template(lab)
+        source = $("#popup-template").html()
+        template = Handlebars.compile(source)
+        lab.marker.desc = template(lab)
 
-      # lab.marker.desc = "<h1>#{lab.name}</h1>"
-      # lab.marker.desc += "<a href='/labs/#{lab._id}/edit'>Edit</a>"
-      # lab.marker.desc += "<table>"
-      # for word in ["location", "city", "email", "phone"]
-      #   lab.marker.desc += row(word,lab[word]) if lab[word]
-      # lab.marker.desc += "</table>"
-      lab.marker.bindPopup(lab.marker.desc)
+        # lab.marker.desc = "<h1>#{lab.name}</h1>"
+        # lab.marker.desc += "<a href='/labs/#{lab._id}/edit'>Edit</a>"
+        # lab.marker.desc += "<table>"
+        # for word in ["location", "city", "email", "phone"]
+        #   lab.marker.desc += row(word,lab[word]) if lab[word]
+        # lab.marker.desc += "</table>"
+        lab.marker.bindPopup(lab.marker.desc)
 
-      window.labs.push(lab)
+        window.labs.push(lab)
 
   $('#current_kind').click (e) ->
     e.preventDefault()

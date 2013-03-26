@@ -22,14 +22,14 @@ class LabsController < ApplicationController
     @lab = Lab.new
     @lab.build_address
     @lab.contacts.build
-    # @lab.websites.build
+    @lab.websites.build
   end
 
   def create
     @lab = Lab.new(params[:lab])
     if @lab.save
-      BotMailer.new_lab(@lab).deliver
-      redirect_to root_path, notice: "Lab Created"
+      # BotMailer.new_lab(@lab).deliver
+      redirect_to labs_path, notice: "Lab Created"
     else
       render :new
     end
@@ -38,7 +38,7 @@ class LabsController < ApplicationController
   def update
     @lab = Lab.find(params[:id])
     if @lab.update_attributes(params[:lab])
-      redirect_to root_path, notice: "Lab Updated"
+      redirect_to labs_path, notice: "Lab Updated"
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class LabsController < ApplicationController
   def destroy
     @lab = Lab.find(params[:id])
     @lab.delete
-    redirect_to root_path, notice: "Lab deleted"
+    redirect_to labs_path, notice: "Lab deleted"
   end
 
 end
