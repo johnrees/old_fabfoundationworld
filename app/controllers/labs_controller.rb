@@ -1,4 +1,9 @@
 class LabsController < ApplicationController
+
+  def show
+    @lab= Lab.find(params[:id])
+  end
+
   def index
     @labs = Lab.all
     respond_to do |format|
@@ -7,15 +12,9 @@ class LabsController < ApplicationController
     end
   end
 
-  def show
-    @lab= Lab.find(params[:id])
-  end
-
   def edit
     @lab = Lab.find(params[:id])
     @lab.build_address unless @lab.address
-    # @lab.contacts.build
-    # @lab.websites.build
   end
 
   def new
