@@ -2,7 +2,8 @@
 
   %ul.title-area
     %li.name
-      %h1= link_to "Fab Lab Map", root_path
+      %h1#fablabmap
+        = link_to "Fab Lab Map", root_path
     %li.toggle-topbar.menu-icon
       %a{:href => "#"}
         %span
@@ -21,9 +22,9 @@
           %li#allkinds.kind{data: {kind: 'fablab mini planned'}}= link_to "All Fab Labs", "#"
           %li.divider
 
-          %li.kind{data: {kind: 'fab_lab'}}= link_to "Fab Labs", "#"
-          %li.kind{data: {kind: 'mini'}}= link_to "Mini Fab Labs", "#"
-          %li.kind{data: {kind: 'planned'}}= link_to "Planned Labs", "#"
+          %li.kind{data: {kind: 'fab_lab'},  title: 'Full-sized Fab Labs'}= link_to "Fab Labs", "#"
+          %li.kind{data: {kind: 'mini'},  title: 'Smaller labs that offer some of the facilities of a full Fab Lab'}= link_to "Mini Fab Labs", "#"
+          %li.kind{data: {kind: 'planned'}, title: 'Labs that will open soon'}= link_to "Planned Labs", "#"
       %li.divider
     %ul.right
       %li.divider

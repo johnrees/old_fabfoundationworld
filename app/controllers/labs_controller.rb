@@ -7,6 +7,10 @@ class LabsController < ApplicationController
     end
   end
 
+  def show
+    @lab= Lab.find(params[:id])
+  end
+
   def edit
     @lab = Lab.find(params[:id])
     @lab.build_address unless @lab.address
@@ -24,6 +28,7 @@ class LabsController < ApplicationController
   def create
     @lab = Lab.new(params[:lab])
     if @lab.save
+      BotMailer.new_lab(@lab).deliver
       redirect_to root_path, notice: "Lab Created"
     else
       render :new

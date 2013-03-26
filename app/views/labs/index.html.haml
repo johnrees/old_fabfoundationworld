@@ -14,6 +14,8 @@
             %td= link_to lab, edit_lab_path(lab)
             %td= lab.kind
             %td= truncate lab.address.formatted
-            %td=link_to "delete", lab, method: :delete, class: 'button small alert'
+            %td
+              =link_to "approve", lab, class: 'button small'
+              =link_to "delete", lab, method: :delete, class: 'button small alert'
 
     = link_to "Add a Lab", new_lab_path, class: 'button'

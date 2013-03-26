@@ -1,0 +1,58 @@
+.row
+  .columns.large-12
+    %ul.button-group
+      %li= link_to "Approve", "#", class: 'button'
+      %li= link_to "Edit", edit_lab_path(@lab), class: 'button'
+
+    %h1= @lab
+    %table
+      %tr
+        %th Kind
+        %td= @lab.kind
+      %tr
+        %th Address
+        %td= @lab.address.formatted
+      %tr
+        %th Contacts
+        %td
+          - @lab.contacts.each do |contact|
+            %table
+              %tr
+                %th Name
+                %td= contact.name
+              %tr
+                %th Email
+                %td= mail_to contact.email
+              %tr
+                %th Phone
+                %td= contact.phone
+              %tr
+                %th Fax
+                %td= contact.fax
+      %tr
+        %th Websites
+        %td
+          - @lab.websites.each do |website|
+            %table
+              %tr
+                %th Name
+                %td= website.name
+              %tr
+                %th URL
+                %td= link_to website.url, website.url
+
+      %tr
+        %th Hours
+        %td= @lab.hours
+      %tr
+        %th Collaborators
+        %td= @lab.collaborators
+      %tr
+        %th Comments
+        %td= @lab.comments
+      %tr
+        %th Facilities
+        %td= @lab.facilities
+      %tr
+        %th Languages
+        %td= @lab.languages
