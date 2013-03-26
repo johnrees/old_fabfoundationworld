@@ -10,12 +10,13 @@ window.image_path = (name) ->
 
 window.searchTerm = ""
 window.kind = null
-window.markers = new L.MarkerClusterGroup()
+window.markers = new L.MarkerClusterGroup
+  showCoverageOnHover: true
 
 center = (position) ->
   latitude = position.coords.latitude
   longitude = position.coords.longitude
-  window.map.setView([latitude, longitude], 6)
+  window.map.setView([latitude, longitude], 7)
 
 show_map = ->
   window.map.setView([41,2], 2)
@@ -55,7 +56,10 @@ filter = ->
 
 
 jQuery ->
-  window.map = L.map('map')
+  window.map = L.map 'map', {
+    minZoom: 2
+    maxZoom: 13
+  }
   window.labs = []
   show_map()
 
