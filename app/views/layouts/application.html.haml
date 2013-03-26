@@ -8,6 +8,7 @@
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %base{target: "_top"}/
     %title= content_for?(:title) ? yield(:title) : "Fab Lab World"
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/custom.modernizr", "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false", "application"
