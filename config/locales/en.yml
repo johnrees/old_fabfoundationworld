@@ -13,6 +13,6 @@ en:
     planned_labs: Planned Labs
     search: Search
     websites: Websites
-    title: 
-  maps:
-    title: 
+  simple_form:
+    required:
+      html: <abbr title="required">*</abbr>

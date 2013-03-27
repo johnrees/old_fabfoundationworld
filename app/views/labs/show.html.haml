@@ -1,8 +1,9 @@
 .row
   .columns.large-12
-    %ul.button-group
-      %li= link_to "Approve", "#", class: 'button'
-      %li= link_to "Edit", edit_lab_path(@lab), class: 'button'
+    - if can? :edit, @lab
+      %ul.button-group
+        %li= link_to "Approve", "#", class: 'button'
+        %li= link_to "Edit", edit_lab_path(@lab), class: 'button'
 
     %h1= @lab
     %table
@@ -56,3 +57,10 @@
       %tr
         %th Languages
         %td= @lab.languages
+
+    %h4 Other Labs in #{@lab.address.country}
+    %ul
+      - Lab.where('address.country' => @lab.address.country).each do |lab|
+        %li
+          = link_to lab, lab
+          = lab.address.formatted

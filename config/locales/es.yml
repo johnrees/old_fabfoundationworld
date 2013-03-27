@@ -12,6 +12,6 @@ es:
     planned_labs: 
     search: Buscar
     websites: 
-    title: 
-  maps:
-    title: 
+  simple_form:
+    required:
+      html: 

@@ -30,17 +30,18 @@
       %li.has-form
         = link_to t("map.add_a_lab"), new_lab_path, class: 'button radius'
       %li.has-dropdown
-        = link_to t("locale.#{I18n.locale}"), "#"
+        = link_to $locales[I18n.locale], "#"
         %ul.dropdown
-          %li.language= link_to t("locale.en"), locale: "en"
-          %li.language= link_to t("locale.es"), locale: "es"
+          %li.language= link_to $locales[:en], locale: "en"
+          %li.language= link_to $locales[:es], locale: "es"
+          %li.language= link_to $locales[:pt], locale: "pt"
 
 
 #map
 
 %script{id: 'popup-template', type: 'text/x-handlebars-template'}
   :plain
-    <h2>{{name}}</h2>
+    <h2><a href="/labs/{{_id}}">{{name}}</a></h2>
     {{address.formatted}}
 
     {{#if hours}}
