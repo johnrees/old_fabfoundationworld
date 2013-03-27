@@ -3,7 +3,7 @@
   %ul.title-area
     %li.name
       %h1#fablabmap
-        = link_to t("map.title"), root_path
+        = link_to "Fab Lab Network", root_path
     %li.toggle-topbar.menu-icon
       %a{:href => "#"}
         %span
@@ -30,7 +30,7 @@
       %li.has-form
         = link_to t("map.add_a_lab"), new_lab_path, class: 'button radius'
       %li.has-dropdown
-        = link_to t("locale.#{params[:locale]}"), "#"
+        = link_to t("locale.#{I18n.locale}"), "#"
         %ul.dropdown
           %li.language= link_to t("locale.en"), locale: "en"
           %li.language= link_to t("locale.es"), locale: "es"

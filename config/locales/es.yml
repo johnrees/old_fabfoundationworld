@@ -1,18 +1,17 @@
 es:
-  map:
-    all_fab_labs: Todos Fab Labs
-    fab_labs: Fab Labs
-    mini_fab_labs: Pequeños Fab Labs
-    planned_labs: Planificada Fab Labs
-    add_a_lab: Añadir un Lab
-    search: Buscar
-    contacts: Contactos
-    opening_hours: Horarios de Apertura
-    websites: Sitios Web
-    title: La Red de Fab Lab
-  maps:
-    search: Buscar
-    title: 
   locale:
     en: English
     es: Español
+  map:
+    add_a_lab: Añadir un Lab
+    all_fab_labs: 
+    contacts: 
+    fab_labs: 
+    mini_fab_labs: 
+    opening_hours: 
+    planned_labs: 
+    search: Buscar
+    websites: 
+    title: 
+  maps:
+    title: 

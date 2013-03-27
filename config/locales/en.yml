@@ -1,19 +1,18 @@
 en:
   hello: Hello world
-  map:
-    all_fab_labs: All Fab Labs
-    fab_labs: Fab Labs
-    mini_fab_labs: Mini Fab Labs
-    planned_labs: Planned Labs
-    add_a_lab: Add a Lab
-    search: Search
-    contacts: Contacts
-    opening_hours: Opening Hours
-    websites: Websites
-    title: Fab Lab Network
-  maps:
-    search: Search
-    title: 
   locale:
     en: English
     es: Español
+  map:
+    add_a_lab: Add a Lab
+    all_fab_labs: All Fab Labs
+    contacts: Contacts
+    fab_labs: Fab Labs
+    mini_fab_labs: Mini Fab Labs
+    opening_hours: Opening Hours
+    planned_labs: Planned Labs
+    search: Search
+    websites: Websites
+    title: 
+  maps:
+    title: 
