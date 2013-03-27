@@ -1,0 +1,17 @@
+pt:
+  locale:
+    en: 
+    es: 
+  map:
+    add_a_lab: Adicionar um Lab
+    all_fab_labs: 
+    contacts: 
+    fab_labs: 
+    mini_fab_labs: 
+    opening_hours: 
+    planned_labs: 
+    search: Pesquisar
+    websites: 
+  simple_form:
+    required:
+      html: 
