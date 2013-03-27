@@ -3,7 +3,7 @@
   %ul.title-area
     %li.name
       %h1#fablabmap
-        = link_to "Fab Lab Map", root_path
+        = link_to t("map.title"), root_path
     %li.toggle-topbar.menu-icon
       %a{:href => "#"}
         %span
@@ -14,22 +14,27 @@
       %li.has-form
         %form
           .row.collapse
-            %input{type: "text", placeholder: "Search...", id: 'search_filter'}/
+            %input{type: "text", placeholder: "#{t("map.search")}...", id: 'search_filter'}/
       %li.divider
       %li.has-dropdown
-        = link_to "All Fab Labs", "#", id: 'current_kind'
+        = link_to t("map.all_fab_labs"), "#", id: 'current_kind'
         %ul.dropdown
-          %li#allkinds.kind{data: {kind: 'fablab mini planned'}}= link_to "All Fab Labs", "#"
+          %li#allkinds.kind{data: {kind: 'fablab mini planned'}}= link_to t("map.all_fab_labs"), "#"
           %li.divider
 
-          %li.kind{data: {kind: 'fab_lab'},  title: 'Full-sized Fab Labs'}= link_to "Fab Labs", "#"
-          %li.kind{data: {kind: 'mini'},  title: 'Smaller labs that offer some of the facilities of a full Fab Lab'}= link_to "Mini Fab Labs", "#"
-          %li.kind{data: {kind: 'planned'}, title: 'Labs that will open soon'}= link_to "Planned Labs", "#"
-      %li.divider
+          %li.kind{data: {kind: 'fab_lab'},  title: 'Full-sized Fab Labs'}= link_to t("map.fab_labs"), "#"
+          %li.kind{data: {kind: 'mini'},  title: 'Smaller labs that offer some of the facilities of a full Fab Lab'}= link_to t("map.mini_fab_labs"), "#"
+          %li.kind{data: {kind: 'planned'}, title: 'Labs that will open soon'}= link_to t("map.planned_labs"), "#"
     %ul.right
       %li.divider
       %li.has-form
-        = link_to "Add a Lab", new_lab_path, class: 'button radius'
+        = link_to t("map.add_a_lab"), new_lab_path, class: 'button radius'
+      %li.has-dropdown
+        = link_to t("locale.#{params[:locale]}"), "#"
+        %ul.dropdown
+          %li.language= link_to t("locale.en"), locale: "en"
+          %li.language= link_to t("locale.es"), locale: "es"
+
 
 #map
 
@@ -40,13 +45,13 @@
 
     {{#if hours}}
     <hr/>
-    <h5>Opening Hours</h5>
+    <h5>#{t('map.opening_hours')}</h5>
     {{hours}}
     {{/if}}
 
     {{#if contacts}}
     <hr/>
-    <h4>Contacts</h4>
+    <h4>#{t('map.contacts')}</h4>
     <ul>
     {{#each contacts}}
       <li>
@@ -60,7 +65,7 @@
 
     {{#if websites}}
     <hr/>
-    <h4>Websites</h4>
+    <h4>#{t('map.websites')}</h4>
     <ul>
     {{#each websites}}
       <li>

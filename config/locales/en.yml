@@ -1,5 +1,19 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  hello: Hello world
+  map:
+    all_fab_labs: All Fab Labs
+    fab_labs: Fab Labs
+    mini_fab_labs: Mini Fab Labs
+    planned_labs: Planned Labs
+    add_a_lab: Add a Lab
+    search: Search
+    contacts: Contacts
+    opening_hours: Opening Hours
+    websites: Websites
+    title: Fab Lab Network
+  maps:
+    search: Search
+    title: 
+  locale:
+    en: English
+    es: Español

@@ -7,10 +7,10 @@ gem "carmen"
 gem "sorcery"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'localeapp'
 gem 'haml-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
-
+gem 'locale_setter'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
